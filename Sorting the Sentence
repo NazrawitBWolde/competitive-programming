@@ -1,0 +1,47 @@
+class Solution {
+public:
+    string sortSentence(string s) {
+    int num = 1;
+    string list,tempList;
+    int pos1 = 0;
+    int pos2 = 0;
+
+    for (int i = 0; i < s.length(); i++)
+    {
+        pos1 = 0;
+        pos2 = 0;
+
+        for (int i = 0; i < s.length(); i++)
+        {
+            
+            if (s[i] > 48 && s[i] < 59)
+            {
+                pos1 = pos2;
+                if (s[pos1] > 48 && s[pos1] < 59)
+                {
+                    pos1 += 2;
+                }
+                pos2 = i;
+                if (s[i] == num + 48)
+                {
+                    
+                    for (int j = pos1; j < pos2; j++)
+                    {
+                        list += s[j];
+                    }
+                    
+                    num++;
+                    list+=" ";
+                }
+            }
+        }
+    }
+    for (int i = 0; i < list.length() - 1; i++)
+    {
+        tempList += list[i];
+    }
+    return tempList;
+    return list;
+        
+    }
+};
