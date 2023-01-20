@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int> targetIndices(vector<int>& nums, int target) {
+        vector<int> num;
+    
+        for(int i=0; i<nums.size()-1; i++){
+            int min= nums[i];
+            for (int j=i+1; j<nums.size(); j++){
+                if(nums[j]<nums[i]){
+                    int temp= nums[j];
+                    nums[j]=nums[i];
+                    nums[i]=temp;
+                }
+            }
+
+        }
+        for(int i=0;i<nums.size(); i++){
+            if(nums[i]==target)
+            num.push_back(i);
+        }
+
+        return num;
+
+        
+    }
+};
